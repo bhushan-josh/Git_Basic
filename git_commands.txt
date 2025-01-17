@@ -1,0 +1,532 @@
+bhushan@bhushan-pc ~ $ cd Jo
+-bash: cd: Jo: No such file or directory
+bhushan@bhushan-pc ~ $ cd josh/
+bhushan@bhushan-pc ~/josh $ cd git_basic/
+bhushan@bhushan-pc ~/josh/git_basic (feature1) $ l
+first.txt  README.md  second.txt
+sbhushan@bhushan-pc ~/josh/git_basic (feature1) $ ls
+first.txt  README.md  second.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature1) $ git branch
+* feature1
+  feature2
+  main
+bhushan@bhushan-pc ~/josh/git_basic (feature1) $ git checkout -b feature3
+Switched to a new branch 'feature3'
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git branch
+  feature1
+  feature2
+* feature3
+  main
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ rm first.txt 
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ vi git_commands.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ ls
+git_commands.txt  README.md  second.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git status
+On branch feature3
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+	deleted:    first.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	git_commands.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git add .
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git status
+On branch feature3
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   README.md
+	deleted:    first.txt
+	new file:   git_commands.txt
+
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git reset
+Unstaged changes after reset:
+M	README.md
+D	first.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git status
+On branch feature3
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   README.md
+	deleted:    first.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	git_commands.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git add first.txt 
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git commit -m "delete first file"
+[feature3 3f2535f] delete first file
+ 1 file changed, 2 deletions(-)
+ delete mode 100644 first.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git add .
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git commit -m "add practise file"
+[feature3 069bad5] add practise file
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 git_commands.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git status
+On branch feature3
+nothing to commit, working tree clean
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git graph
+git: 'graph' is not a git command. See 'git --help'.
+
+The most similar commands are
+	branch
+	grep
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git log
+commit 069bad500f52208121dda7f1eac12b7596df45ed (HEAD -> feature3)
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:26:18 2025 +0530
+
+    add practise file
+
+commit 3f2535feefebb4b014f1f6434c45e28aa336a1aa
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:25:06 2025 +0530
+
+    delete first file
+
+commit 6af5ee73f3bdb81d230d4ba350d157977bb7b54a (origin/feature2, origin/feature1, feature2, feature1)
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:24:07 2025 +0530
+
+    add second file
+
+commit 4d73067d2e8d58ccc2479a85d458c501ad3b2693
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:22:43 2025 +0530
+
+    modified first file
+
+commit e9050ecb1f240717be2c0d1004fcead65d65575e (origin/main, origin/HEAD, main)
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:21:20 2025 +0530
+
+    add file
+
+commit 978fe20cff534db39937cea99995f2133ac52dd5
+Author: Bhushan Nagpure <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:20:09 2025 +0530
+
+    Initial commit
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git checkout manin
+error: pathspec 'manin' did not match any file(s) known to git
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+bhushan@bhushan-pc ~/josh/git_basic (main) $ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+bhushan@bhushan-pc ~/josh/git_basic (main) $ git checkout feature3
+Switched to branch 'feature3'
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git push origin feature3
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 775 bytes | 258.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'feature3' on GitHub by visiting:
+remote:      https://github.com/bhushan-josh/git_basic/pull/new/feature3
+remote: 
+To github.com:bhushan-josh/git_basic.git
+ * [new branch]      feature3 -> feature3
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git status
+On branch feature3
+nothing to commit, working tree clean
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git log
+commit 069bad500f52208121dda7f1eac12b7596df45ed (HEAD -> feature3, origin/feature3)
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:26:18 2025 +0530
+
+    add practise file
+
+commit 3f2535feefebb4b014f1f6434c45e28aa336a1aa
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:25:06 2025 +0530
+
+    delete first file
+
+commit 6af5ee73f3bdb81d230d4ba350d157977bb7b54a (origin/feature2, origin/feature1, feature2, feature1)
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:24:07 2025 +0530
+
+    add second file
+
+commit 4d73067d2e8d58ccc2479a85d458c501ad3b2693
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:22:43 2025 +0530
+
+    modified first file
+
+commit e9050ecb1f240717be2c0d1004fcead65d65575e (origin/main, origin/HEAD, main)
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:21:20 2025 +0530
+
+    add file
+
+commit 978fe20cff534db39937cea99995f2133ac52dd5
+Author: Bhushan Nagpure <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:20:09 2025 +0530
+
+    Initial commit
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git -d feature2
+unknown option: -d
+usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--config-env=<name>=<envvar>] <command> [<args>]
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git branch
+  feature1
+  feature2
+* feature3
+  main
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git checkout -b feature5
+Switched to a new branch 'feature5'
+bhushan@bhushan-pc ~/josh/git_basic (feature5) $ git branch -D feature5
+error: cannot delete branch 'feature5' used by worktree at '/home/bhushan/josh/git_basic'
+bhushan@bhushan-pc ~/josh/git_basic (feature5) $ git checkout feature4
+error: pathspec 'feature4' did not match any file(s) known to git
+bhushan@bhushan-pc ~/josh/git_basic (feature5) $ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+bhushan@bhushan-pc ~/josh/git_basic (main) $ git branch -D feature5
+Deleted branch feature5 (was 069bad5).
+bhushan@bhushan-pc ~/josh/git_basic (main) $ git branch
+  feature1
+  feature2
+  feature3
+* main
+bhushan@bhushan-pc ~/josh/git_basic (main) $ ls
+first.txt  README.md
+bhushan@bhushan-pc ~/josh/git_basic (main) $ git branch feature3
+fatal: a branch named 'feature3' already exists
+bhushan@bhushan-pc ~/josh/git_basic (main) $ git checkout feature3
+Switched to branch 'feature3'
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ ls
+git_commands.txt  README.md  second.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ vi josh.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ ls
+git_commands.txt  josh.txt  README.md  second.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git ls-files
+README.md
+git_commands.txt
+second.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ ls
+git_commands.txt  josh.txt  README.md  second.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git status
+On branch feature3
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	josh.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git add .
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git commit -m "add file josh"
+[feature3 3aa4dc1] add file josh
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 josh.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git ls
+git: 'ls' is not a git command. See 'git --help'.
+
+The most similar command is
+	log
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git ls-files
+README.md
+git_commands.txt
+josh.txt
+second.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git push origin feature3
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 234 bytes | 234.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:bhushan-josh/git_basic.git
+   069bad5..3aa4dc1  feature3 -> feature3
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git status -s
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ rm josh.txt 
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git rm josh.txt 
+rm 'josh.txt'
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git ls-files
+README.md
+git_commands.txt
+second.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git status
+On branch feature3
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	deleted:    josh.txt
+
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git add josh.tct
+fatal: pathspec 'josh.tct' did not match any files
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git add josh.tct
+fatal: pathspec 'josh.tct' did not match any files
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git add josh.txt
+fatal: pathspec 'josh.txt' did not match any files
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git add .
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git commit -m "remve josh file"
+[feature3 d2f110b] remve josh file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 josh.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git push origin feature3
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 230 bytes | 230.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:bhushan-josh/git_basic.git
+   3aa4dc1..d2f110b  feature3 -> feature3
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ vi bhushan1.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ vi bhushan2.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ ls
+bhushan1.txt  bhushan2.txt  git_commands.txt  README.md  second.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git add bhushan1.txt bhushan2.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git commit
+[feature3 64b0e90] Using mutiline commit added 2 file using name of files
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 bhushan1.txt
+ create mode 100644 bhushan2.txt
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git status
+On branch feature3
+nothing to commit, working tree clean
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git push origin feature3
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 355 bytes | 355.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:bhushan-josh/git_basic.git
+   d2f110b..64b0e90  feature3 -> feature3
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ vi bhushan1.txt 
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git status
+On branch feature3
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   bhushan1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git add .
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git restore
+fatal: you must specify path(s) to restore
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git rstore --
+git: 'rstore' is not a git command. See 'git --help'.
+
+The most similar command is
+	restore
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git restore --
+fatal: you must specify path(s) to restore
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git restore --staged bhushan1.txt 
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git status
+On branch feature3
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   bhushan1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git log
+commit 64b0e90cf25b653c083de74c13c5e0f61ed311ac (HEAD -> feature3, origin/feature3)
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:39:02 2025 +0530
+
+    Using mutiline commit
+    added 2 file using name of files
+
+commit d2f110bc6b6b93f3c68f8ca23635d73b7459f862
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:37:31 2025 +0530
+
+    remve josh file
+
+commit 3aa4dc150acff0778afca33be30484385b50d77f
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:34:24 2025 +0530
+
+    add file josh
+
+commit 069bad500f52208121dda7f1eac12b7596df45ed
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:26:18 2025 +0530
+
+    add practise file
+
+commit 3f2535feefebb4b014f1f6434c45e28aa336a1aa
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:25:06 2025 +0530
+
+    delete first file
+
+commit 6af5ee73f3bdb81d230d4ba350d157977bb7b54a (origin/feature2, origin/feature1, feature2, feature1)
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:24:07 2025 +0530
+
+    add second file
+
+commit 4d73067d2e8d58ccc2479a85d458c501ad3b2693
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:22:43 2025 +0530
+
+    modified first file
+
+commit e9050ecb1f240717be2c0d1004fcead65d65575e (origin/main, origin/HEAD, main)
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:21:20 2025 +0530
+
+    add file
+
+
+commit 64b0e90cf25b653c083de74c13c5e0f61ed311ac (HEAD -> feature3, origin/feature3)
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:39:02 2025 +0530
+
+    Using mutiline commit
+    added 2 file using name of files
+
+commit d2f110bc6b6b93f3c68f8ca23635d73b7459f862
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:37:31 2025 +0530
+
+    remve josh file
+
+commit 3aa4dc150acff0778afca33be30484385b50d77f
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:34:24 2025 +0530
+
+    add file josh
+
+commit 069bad500f52208121dda7f1eac12b7596df45ed
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:26:18 2025 +0530
+
+    add practise file
+
+commit 3f2535feefebb4b014f1f6434c45e28aa336a1aa
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:25:06 2025 +0530
+
+    delete first file
+
+commit 6af5ee73f3bdb81d230d4ba350d157977bb7b54a (origin/feature2, origin/feature1, feature2, feature1)
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:24:07 2025 +0530
+
+    add second file
+
+commit 4d73067d2e8d58ccc2479a85d458c501ad3b2693
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:22:43 2025 +0530
+
+    modified first file
+
+commit e9050ecb1f240717be2c0d1004fcead65d65575e (origin/main, origin/HEAD, main)
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:21:20 2025 +0530
+
+    add file
+
+commit 978fe20cff534db39937cea99995f2133ac52dd5
+
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git stash
+Saved working directory and index state WIP on feature3: 64b0e90 Using mutiline commit added 2 file using name of files
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git stash pop
+On branch feature3
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   bhushan1.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	tash
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (76a32f549b939d15ffb32803a612a8c105627e1c)
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git stash pop
+No stash entries found.
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git stash
+Saved working directory and index state WIP on feature3: 64b0e90 Using mutiline commit added 2 file using name of files
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git add .
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git stash pop
+On branch feature3
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   tash
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   bhushan1.txt
+
+Dropped refs/stash@{0} (cc9a51ff257c8854b630ba9f424fd4c1d06e9328)
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git add .
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git ls-files
+README.md
+bhushan1.txt
+bhushan2.txt
+git_commands.txt
+second.txt
+tash
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git reset --soft
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ 
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git revert --staged bhushan1.txt
+fatal: bad revision 'bhushan1.txt'
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git restore --staged bhushan1.txt 
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git status
+On branch feature3
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   tash
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   bhushan1.txt
+
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git add .
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git -m "edit bhushan.txt"
+unknown option: -m
+usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--config-env=<name>=<envvar>] <command> [<args>]
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git -m commit "edit bhushan.txt"
+unknown option: -m
+usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--config-env=<name>=<envvar>] <command> [<args>]
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git commit -m "edit bhushan.txt"
+[feature3 279c90c] edit bhushan.txt
+ 2 files changed, 55 insertions(+)
+ create mode 100644 tash
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ git push origin feature3
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 929 bytes | 464.00 KiB/s, done.
+Total 4 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:bhushan-josh/git_basic.git
+   64b0e90..279c90c  feature3 -> feature3
+bhushan@bhushan-pc ~/josh/git_basic (feature3) $ 
+

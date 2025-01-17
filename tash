@@ -1,0 +1,54 @@
+[33mcommit 64b0e90cf25b653c083de74c13c5e0f61ed311ac[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature3[m[33m, [m[1;31morigin/feature3[m[33m)[m
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:39:02 2025 +0530
+
+    Using mutiline commit
+    added 2 file using name of files
+
+[33mcommit d2f110bc6b6b93f3c68f8ca23635d73b7459f862[m
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:37:31 2025 +0530
+
+    remve josh file
+
+[33mcommit 3aa4dc150acff0778afca33be30484385b50d77f[m
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:34:24 2025 +0530
+
+    add file josh
+
+[33mcommit 069bad500f52208121dda7f1eac12b7596df45ed[m
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:26:18 2025 +0530
+
+    add practise file
+
+[33mcommit 3f2535feefebb4b014f1f6434c45e28aa336a1aa[m
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Fri Jan 17 00:25:06 2025 +0530
+
+    delete first file
+
+[33mcommit 6af5ee73f3bdb81d230d4ba350d157977bb7b54a[m[33m ([m[1;31morigin/feature2[m[33m, [m[1;31morigin/feature1[m[33m, [m[1;32mfeature2[m[33m, [m[1;32mfeature1[m[33m)[m
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:24:07 2025 +0530
+
+    add second file
+
+[33mcommit 4d73067d2e8d58ccc2479a85d458c501ad3b2693[m
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:22:43 2025 +0530
+
+    modified first file
+
+[33mcommit e9050ecb1f240717be2c0d1004fcead65d65575e[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: bhushan-josh <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:21:20 2025 +0530
+
+    add file
+
+[33mcommit 978fe20cff534db39937cea99995f2133ac52dd5[m
+Author: Bhushan Nagpure <bhushan.nagpure@joshsoftware.com>
+Date:   Mon Jan 13 13:20:09 2025 +0530
+
+    Initial commit
